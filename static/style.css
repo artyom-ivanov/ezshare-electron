@@ -1,0 +1,154 @@
+@font-face {
+  font-family: "Proxima";
+  src: url('./ProximaNova.ttf');
+}
+* {
+  font-family: "Proxima";
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+body {
+  background: #181454;
+  padding: 20px;
+}
+.counter {
+  position: absolute;
+  right: 20px;
+  top: 22px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  font-size: 12px;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.1);
+}
+.counter .icon {
+  width: 20px;
+  height: 20px;
+  background: url('./photo.svg') no-repeat center center;
+  background-size: contain;
+  margin-left: 10px;
+  margin-bottom: 2px;
+}
+.wrap {
+  display: flex;
+  flex-flow: column nowrap;
+}
+h1 {
+  font-size: 24px;
+  width: 100%;
+  line-height: 18px;
+  margin: 5px 0 5px;
+  /* border-bottom: 1px solid #B1A8AF; */
+  /* padding-bottom: 20px; */
+}
+h1 span {
+  font-size: 14px;
+  opacity: 0.3;
+}
+
+.form {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
+  padding-bottom: 20px;
+}
+.form-item {
+  margin: 15px 0 0 0;
+  width: calc(100% - 50px);
+}
+.form-item label{
+  font-size: 14px;
+}
+.form-item input{
+  background: white;
+  margin: 5px 0 0;
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  color: black;
+  border-radius: 5px;
+  height: 40px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  overflow: auto;
+}
+.form.disabled input {
+  pointer-events: none;
+  opacity: 0.5;
+}
+#output {
+  cursor: pointer;
+}
+.form-item:nth-child(1) {
+  width: 100%;
+  margin-right: 0;
+}
+.play {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #F6C230;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+  margin-left: auto;
+  outline: none;
+}
+.play:before {
+  content:'';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: url('./sync.svg') no-repeat center center;
+  background-size: contain;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.play.in-process {
+  background: #06A595;
+}
+.play.in-process:before {
+  animation: rotate 1.7s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: translate(-50%,-50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%,-50%) rotate(720deg);
+  }
+}
+
+.message {
+  width: 100%;
+  background: rgba(255,255,255,0.3);
+  font-size: 12px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  animation: showMessage .4s ease 1 both;
+}
+@keyframes showMessage {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.message.hide {
+  display: none;
+}
+.message.error {
+  background: rgba(143, 4, 4, 0.5);
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>EzShare Sync</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="./static/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="counter" title="Counter of synced photos">
+        <span id="counter">0</span>
+        <div class="icon"></div>
+      </div>
+      <h1>EzShare Sync<br><span>by artyom.space</span></h1>
+      <div class="form">
+        <div class="form-item">
+          <span>URL from ezShare web-interface</span>
+          <input type="text" id="input" class="form-item" value="http://ezshare.card/dir?dir=A:%5CDCIM%5C589___01"/>
+        </div>
+        <div class="form-item">
+          <span>Output folder</span>
+          <!-- <label>
+            <b id="path">Click to choose folder</b>
+            <input id="output" type="file" webkitdirectory />
+          </label> -->
+          <input type="text" id="output" class="form-item" value=""/>
+        </div>
+        <button class="play" id="start" title="Start sync"></button>
+      </div>
+      <div class="message hide"></div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <!-- We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>. -->
+  </body>
+</html>
